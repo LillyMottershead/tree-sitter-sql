@@ -179,6 +179,10 @@
             "named": true
           },
           {
+            "type": "keyword_unsigned",
+            "named": true
+          },
+          {
             "type": "keyword_uuid",
             "named": true
           },
@@ -938,6 +942,10 @@
           "named": true
         },
         {
+          "type": "keyword_unsigned",
+          "named": true
+        },
+        {
           "type": "keyword_uuid",
           "named": true
         },
@@ -1171,6 +1179,10 @@
           },
           {
             "type": "keyword_timestamptz",
+            "named": true
+          },
+          {
+            "type": "keyword_unsigned",
             "named": true
           },
           {
@@ -4522,6 +4534,10 @@
   },
   {
     "type": "keyword_unique",
+    "named": true
+  },
+  {
+    "type": "keyword_unsigned",
     "named": true
   },
   {

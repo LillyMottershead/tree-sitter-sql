@@ -801,6 +801,10 @@
         }
       ]
     },
+    "keyword_unsigned": {
+      "type": "PATTERN",
+      "value": "unsigned|UNSIGNED"
+    },
     "keyword_bigint": {
       "type": "CHOICE",
       "members": [
@@ -1042,6 +1046,10 @@
         {
           "type": "SYMBOL",
           "name": "keyword_int"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "keyword_unsigned"
         },
         {
           "type": "SYMBOL",

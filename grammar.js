@@ -345,6 +345,7 @@ module.exports = grammar({
     keyword_smallint: _ => choice(make_keyword("smallint"),make_keyword("int2")),
     keyword_mediumint: _ => choice(make_keyword("mediumint"),make_keyword("int3")),
     keyword_int: _ => choice(make_keyword("int"), make_keyword("integer"), make_keyword("int4")),
+    keyword_unsigned: _ => make_keyword("unsigned"),
     keyword_bigint: _ => choice(make_keyword("bigint"),make_keyword("int8")),
     keyword_decimal: _ => make_keyword("decimal"),
     keyword_numeric: _ => make_keyword("numeric"),
