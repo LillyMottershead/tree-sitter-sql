@@ -22,6 +22,7 @@ module.exports = grammar({
       'binary_times',
       'binary_plus',
       'binary_in',
+      'between',
       'binary_compare',
       'binary_relation',
       'binary_concat',
