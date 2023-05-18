@@ -2525,6 +2525,42 @@ WHERE
               right: (literal))))))))
 
 ================================================================================
+Where with between
+================================================================================
+
+SELECT
+    *
+FROM
+    a
+WHERE
+    a BETWEEN 0 And 10;
+
+
+--------------------------------------------------------------------------------
+
+(program
+  (statement
+    (select
+      (keyword_select)
+      (select_expression
+        (all_fields)))
+    (from
+      (keyword_from)
+      (relation
+        (table_reference
+          (identifier)))
+      (where
+        (keyword_where)
+        (where_expression
+          (predicate
+            (field
+              (identifier))
+            (keyword_between)
+            (literal)
+            (keyword_and)
+            (literal)))))))
+
+================================================================================
 CASE WHEN with bool column
 ================================================================================
 

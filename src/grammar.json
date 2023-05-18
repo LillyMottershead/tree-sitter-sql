@@ -6165,6 +6165,35 @@
               ]
             }
           ]
+        },
+        {
+          "type": "PREC_LEFT",
+          "value": "between",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "keyword_between"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "keyword_and"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_expression"
+              }
+            ]
+          }
         }
       ]
     },
@@ -6675,6 +6704,10 @@
       {
         "type": "STRING",
         "value": "binary_in"
+      },
+      {
+        "type": "STRING",
+        "value": "between"
       },
       {
         "type": "STRING",

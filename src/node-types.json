@@ -3090,6 +3090,14 @@
           "named": true
         },
         {
+          "type": "keyword_and",
+          "named": true
+        },
+        {
+          "type": "keyword_between",
+          "named": true
+        },
+        {
           "type": "keyword_false",
           "named": true
         },
