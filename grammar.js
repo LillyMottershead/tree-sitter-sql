@@ -213,6 +213,7 @@ module.exports = grammar({
     keyword_gin:  _ => make_keyword("gin"),
     keyword_brin: _ => make_keyword("brin"),
     keyword_like: _ => choice(make_keyword("like"),make_keyword("ilike")),
+    keyword_regexp: _ => make_keyword("regexp"),
     keyword_similar: _ => make_keyword("similar"),
     keyword_preserve: _ => make_keyword("preserve"),
     keyword_unsigned: _ => make_keyword("unsigned"),
@@ -310,6 +311,7 @@ module.exports = grammar({
     distinct_from: $ => seq($.keyword_is, $.keyword_distinct, $.keyword_from),
     not_distinct_from: $ => seq($.keyword_is, $.keyword_not, $.keyword_distinct, $.keyword_from),
 
+    _not_regexp: $ => seq($.keyword_not, $.keyword_regexp),
     _temporary: $ => choice($.keyword_temp, $.keyword_temporary),
     _not_null: $ => seq($.keyword_not, $.keyword_null),
     _primary_key: $ => seq($.keyword_primary, $.keyword_key),
@@ -2840,6 +2842,8 @@ module.exports = grammar({
         [$.not_like, 'pattern_matching'],
         [$.similar_to, 'pattern_matching'],
         [$.not_similar_to, 'pattern_matching'],
+        [$.regexp, 'pattern_matching'],
+        [$._not_regexp, 'pattern_matching'],
         // binary_is precedence disambiguates `(is not distinct from)` from an
         // `is (not distinct from)` with a unary `not`
         [$.distinct_from, 'binary_is'],
