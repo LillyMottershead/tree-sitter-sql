@@ -2401,68 +2401,6 @@ FROM
             (identifier)))))))
 
 ================================================================================
-Where with pattern matching
-================================================================================
-
-SELECT
-    *
-FROM
-    a
-WHERE
-        a LIKE '%a'
-    AND a NOT LIKE '%a'
-    AND a SIMILAR TO '%a'
-    AND a NOT SIMILAR TO '%a';
-
-
---------------------------------------------------------------------------------
-
-(program
-  (statement
-    (select
-      (keyword_select)
-      (select_expression
-        (all_fields)))
-    (from
-      (keyword_from)
-      (relation
-        (table_reference
-          name: (identifier)))
-      (where
-        (keyword_where)
-        (where_expression
-          (predicate
-            left: (predicate
-              left: (predicate
-                left: (predicate
-                  left: (field
-                    name: (identifier))
-                  operator: (keyword_like)
-                  right: (literal))
-                operator: (keyword_and)
-                right: (predicate
-                  left: (field
-                    name: (identifier))
-                  operator: (keyword_not)
-                  operator: (keyword_like)
-                  right: (literal)))
-              operator: (keyword_and)
-              right: (predicate
-                left: (field
-                  name: (identifier))
-                operator: (keyword_similar)
-                operator: (keyword_to)
-                right: (literal)))
-            operator: (keyword_and)
-            right: (predicate
-              left: (field
-                name: (identifier))
-              operator: (keyword_not)
-              operator: (keyword_similar)
-              operator: (keyword_to)
-              right: (literal))))))))
-
-================================================================================
 Where with regexp matching
 ================================================================================
 
@@ -2472,9 +2410,7 @@ FROM
     a
 WHERE
         a REGEXP '^0'
-    AND a NOT REGEXP '^0'
-    AND a SIMILAR TO '%a'
-    AND a NOT SIMILAR TO '%a';
+    AND a NOT REGEXP '^0';
 
 
 --------------------------------------------------------------------------------
@@ -2492,73 +2428,19 @@ WHERE
           name: (identifier)))
       (where
         (keyword_where)
-        (where_expression
-          (predicate
-            left: (predicate
-              left: (predicate
-                left: (predicate
-                  left: (field
-                    name: (identifier))
-                  operator: (keyword_regexp)
-                  right: (literal))
-                operator: (keyword_and)
-                right: (predicate
-                  left: (field
-                    name: (identifier))
-                  operator: (keyword_not)
-                  operator: (keyword_regexp)
-                  right: (literal)))
-              operator: (keyword_and)
-              right: (predicate
-                left: (field
-                  name: (identifier))
-                operator: (keyword_similar)
-                operator: (keyword_to)
-                right: (literal)))
-            operator: (keyword_and)
-            right: (predicate
-              left: (field
-                name: (identifier))
-              operator: (keyword_not)
-              operator: (keyword_similar)
-              operator: (keyword_to)
-              right: (literal))))))))
-
-================================================================================
-Where with between
-================================================================================
-
-SELECT
-    *
-FROM
-    a
-WHERE
-    a BETWEEN 0 And 10;
-
-
---------------------------------------------------------------------------------
-
-(program
-  (statement
-    (select
-      (keyword_select)
-      (select_expression
-        (all_fields)))
-    (from
-      (keyword_from)
-      (relation
-        (table_reference
-          (identifier)))
-      (where
-        (keyword_where)
-        (where_expression
-          (predicate
-            (field
-              (identifier))
-            (keyword_between)
-            (literal)
-            (keyword_and)
-            (literal)))))))
+        predicate: (binary_expression
+          left: (binary_expression
+            left: (field
+              name: (identifier))
+            operator: (keyword_regexp)
+            right: (literal))
+          operator: (keyword_and)
+          right: (binary_expression
+            left: (field
+              name: (identifier))
+            operator: (keyword_not)
+            operator: (keyword_regexp)
+            right: (literal)))))))
 
 ================================================================================
 CASE WHEN with bool column

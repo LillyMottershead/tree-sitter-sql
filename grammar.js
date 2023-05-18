@@ -22,7 +22,6 @@ module.exports = grammar({
       'binary_times',
       'binary_plus',
       'binary_in',
-      'between',
       'binary_compare',
       'binary_relation',
       'binary_concat',
@@ -2844,7 +2843,7 @@ module.exports = grammar({
         [$.not_like, 'pattern_matching'],
         [$.similar_to, 'pattern_matching'],
         [$.not_similar_to, 'pattern_matching'],
-        [$.regexp, 'pattern_matching'],
+        [$.keyword_regexp, 'pattern_matching'],
         [$._not_regexp, 'pattern_matching'],
         // binary_is precedence disambiguates `(is not distinct from)` from an
         // `is (not distinct from)` with a unary `not`
